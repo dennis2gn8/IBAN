@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IBAN</name>
+    </assembly>
+    <members>
+        <member name="T:IBAN.IBANnumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IBAN.IBANnumber.isValid(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="iban"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IBAN.IBANnumber.isLetter(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="letter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IBAN.IBANnumber.isNumeral(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="numeral"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IBAN.IBANnumber.isnumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
