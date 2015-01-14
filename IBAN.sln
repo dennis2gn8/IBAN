@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IBAN", "IBAN\IBAN.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IBANTest", "IBANTest\IBANTest.csproj", "{E7896915-A910-4133-9725-0A00ADA1E578}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank", "..\Bank\Bank\Bank.csproj", "{2443A24A-D1DB-44C6-90CC-56D89A66F49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E7896915-A910-4133-9725-0A00ADA1E578}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7896915-A910-4133-9725-0A00ADA1E578}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7896915-A910-4133-9725-0A00ADA1E578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2443A24A-D1DB-44C6-90CC-56D89A66F49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2443A24A-D1DB-44C6-90CC-56D89A66F49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2443A24A-D1DB-44C6-90CC-56D89A66F49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2443A24A-D1DB-44C6-90CC-56D89A66F49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,72 +7,55 @@ using System.Threading.Tasks;
 namespace IBAN
 {
     /// <summary>
-    /// f
+    /// 
     /// </summary>
     public class IBANnumber
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="iban"></param>
-        /// <returns></returns>
-        public bool isValid(string iban)
+        public bool hasIbanLength (string iban)
         {
-
-            int length; 
-            length= iban.Length;
-
-            if (length == 0)          
-            {
+            if (iban.Length == 0 || iban.Length > 34)
                 return false;
-            }
-            else if (length < 35) 
-            {
-                return true;
-            }
 
-            return false;
+            string LeanderCode = iban.Substring(0, 2);
+            string Pruefsumme = iban.Substring(2, 2);
+            string BLZ_Konto = iban.Substring(4);
+            int zahlencode;
 
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="letter"></param>
-        /// <returns></returns>
-        public bool isLetter(string letter)
-        {
-            if (letter.StartsWith("DE"))
-                return true;
-            else
-                return false;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="numeral"></param>
-        /// <returns></returns>
-        public bool isNumeral(string numeral)
-        {
-            string erg = numeral.Substring(2, 2);
-            return erg.All(c => Char.IsNumber(c));
         
-        }
+            if (!LeanderCode.All(c => Char.IsLetter(c)))
+                return false;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        public bool isNumber(string number)
-        {
-            string erg = number.Substring(4, 30);
-            return erg.All(c => Char.IsNumber(c));
+            if (!Pruefsumme.All(c => Char.IsNumber(c)))
+                return false;
+
+            if (!BLZ_Konto.All(c => Char.IsNumber(c)))
+                return false;
+
+            char[] zeichen = LeanderCode.ToCharArray();
             
+            
+           //Gibt mir die Position der einzelnen Zeichen an (+1) 
+            for (int i = 0; i < zeichen.Length; i++) 
+            {
+              
+                
+                // Die Zeichen werden übergeben an i
+                zahlencode =  zeichen[i]  - 64 + 9;
+            } 
+                     
+
+                   string zwischenwert = BLZ_Konto +  Pruefsumme + LeanderCode  ;
+                   string Modulus = (zwischenwert);
+                   
+
+
+           }
+        private int Modulo(string sModulus, int iTeiler)
+        {
+            
+
         }
-    }
-        
+    }     
 }
 
 
