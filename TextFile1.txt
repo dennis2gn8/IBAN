@@ -1,0 +1,12 @@
+//klasse die bewirkt folgendes:
+ich nehme an dass irgenwedche klasse liefert mir irgendwelche scheisse, die ich in dieser klasse bearbeiten werde...
+
+daur brauche ich mind. 3 methoden
+1. getter
+2. setter
+3. whatever
+
+//diese methode holt mir irgendwelchen klassenparameter/cvariable
+//die methode soll eine bezeichnung reinbekommen, damit ich weiss, welche klassenparameter ich zurückliefern soll.
+//@var typ:string name:paramName
+void getter = function(string paramName){}

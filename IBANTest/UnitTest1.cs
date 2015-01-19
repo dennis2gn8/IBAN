@@ -12,57 +12,26 @@ namespace IBANTest
         /// In diesem Beispiel wird die Zeichenlänge überprüft und ein "true" ausgegeben , wenn die Bedingung erfüllt ist.
         /// </summary>
         [TestMethod]
-        public void hasIbanLength()
+        public void IsValid()
         {
+            //ich instanziiere hier eine Klasse und übergebe die  einer neuen  Klasse
             IBANnumber numberclass = new IBANnumber();
-            String Zieferanzahl;
-            Zieferanzahl = "AAx1111111111111111111111111111111";
+            String Pruefsumme;
+            Pruefsumme = "AA1111111111111111111111111111111";
             bool result;
-            result = numberclass.hasIbanLength(Zieferanzahl);
+            result = numberclass.IsValid(Pruefsumme);
             Assert.IsTrue(result);
-            
         }
-
-        /// <summary>
-        /// In diesem Beispiel wird die Zeichenlänge überprüft und ein "false" ausgegeben , wenn die Bedingung erfüllt ist.
-        /// </summary>
-        [TestMethod]
-        public void ÜberprüfungDerZeichenMengeNull()     
-        {   
-            IBANnumber numberclass = new IBANnumber();
-            String Zieferanzahl1;
-            Zieferanzahl1 = "";
-            bool result;
-            result = numberclass.hasIbanLength(Zieferanzahl1);
-            Assert.IsFalse(result);
-        }
-        /// <summary>
-        /// In diesem Beispiel wird die Zeichenlänge überprüft und ein "false" ausgegeben , wenn die Bedingung erfüllt ist.
-        /// </summary>
-        [TestMethod]
-        public void ÜberPrüfungdDerLängeTrue()
+             [TestMethod]
+        public void Umstellung()
         {
+            //ich instanziiere hier eine Klasse und übergebe die  einer neuen  Klasse
             IBANnumber numberclass = new IBANnumber();
-            String Zieferanzahl2;
-            Zieferanzahl2 = "AZ6666666666666666666666666666666677777777777777777777777777777777777777777777777777777777777777777777";
+            String Pruefsumme;
+            Pruefsumme = "AA111111111111111111111111111111122222222222222222222222222222222222222222222222222222222222222222";
             bool result;
-            result = numberclass.hasIbanLength(Zieferanzahl2);
+            result = numberclass.IsValid(Pruefsumme);
             Assert.IsFalse(result);
-
-        }
-
-        /// <summary>
-        /// In diesem Beispiel wird die Zeichenlänge überprüft und ein "true" ausgegeben , wenn die Bedingung erfüllt ist(+35).
-        /// </summary>
-        [TestMethod]
-        public void ÜberprüfungAufLängeFalse()
-        {
-            IBANnumber numberclass = new IBANnumber();
-            String Zieferanzahl2;
-            Zieferanzahl2 = "AA34567890123456789012345678901234";
-            bool result;
-            result = numberclass.hasIbanLength(Zieferanzahl2);
-            Assert.IsTrue(result);
         }
     }
 }  
