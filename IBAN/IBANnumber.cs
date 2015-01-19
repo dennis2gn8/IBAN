@@ -54,7 +54,8 @@ namespace IBAN
             // Ich erstelle eine Variable egdy in welcher ich aus einen Zahlenarray einen String verkette.
             string egdy = string.Concat(zahlencode);
             //Hier erste ich Variable mit den Namen resultString der mir die Buchstaben durch Zahlen resetzt.
-            string resultString = iban.Replace(LeanderCode,egdy);
+            string resultString = iban.Repl
+            ace(LeanderCode,egdy);
             //In diesen Codeabschnitt findet eine Umstellung statt.
             resultString = resultString.Substring(6) + resultString.Substring(0, 6);
             //Hier erstelle ich eine Variable, an die ein konvertierter String übergeben wird.
