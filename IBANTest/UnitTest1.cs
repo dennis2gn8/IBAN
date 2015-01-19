@@ -17,7 +17,7 @@ namespace IBANTest
             //ich instanziiere hier eine Klasse und übergebe die  einer neuen  Klasse
             IBANnumber numberclass = new IBANnumber();
             String Pruefsumme;
-            Pruefsumme = "AA1111111111111111111111111111111";
+            Pruefsumme = "DE10550604170000082716";
             bool result;
             result = numberclass.IsValid(Pruefsumme);
             Assert.IsTrue(result);

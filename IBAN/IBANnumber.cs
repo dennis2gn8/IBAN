@@ -51,43 +51,19 @@ namespace IBAN
                 zahlencode [i] = zeichen[i] - 64 + 9;
             }
 
-            string resultString;
-            resultString = Umstellung(iban);
-
-
-
-            //frage, ich will doch den zahlencodezurück geben.. NEIN! Ich will wissen ob die übergebene IBAN valide ist!
-            //aber ich habe auch false als potentielle rückwertausgabe.. 
-            //welcher typ muss dann die methode haben?
-            return true;
-            //return zahlencode; DAS SOLL ICH ZURÜCK GEBEN...
-
-        }
-
-        public string Umstellung(string iban)
-        {
-            
-            //eta huina delaet variable tipa string, i ne imeet nikakogo value
-            string resultString;
-            //zdes' ia daiu value tomu variable (resultstring). 
-            //moi value sostoit iz chasti (substring) drugogo variable(iban)
-            resultString = iban.Substring(7, 27);
-            //zdes ia dobavliaiu k uzhe naznachenomu value eshio odnu chast' ot drugogo variable(iban)
-            resultString += iban.Substring(0, 6);
-            // ia vozrashaiu moi variable(resultstring)
-
-
-            
-            double zwischenwert = Convert.ToDouble(resultString);
-            //Hier wird dem parameter "erg" der wert "zwischenwert" übergeben
-            double erg = zwischenwert % 97;
+            // Ich erstelle eine Variable egdy in welcher ich aus einen Zahlenarray einen String verkette.
+            string egdy = string.Concat(zahlencode);
+            //Hier erste ich Variable mit den Namen resultString der mir die Buchstaben durch Zahlen resetzt.
+            string resultString = iban.Replace(LeanderCode,egdy);
+            //In diesen Codeabschnitt findet eine Umstellung statt.
+            resultString = resultString.Substring(6) + resultString.Substring(0, 6);
+            //Hier erstelle ich eine Variable, an die ein konvertierter String übergeben wird.
+            decimal zwischenwert = decimal.Parse(resultString);
+      //In diesen Abschnitt wer eine Variable erstellt die den Parameter "zwischenwert" enthält.
+            decimal erg = zwischenwert % 97;
             
 
-            return resultString;
-        }
-
-        public bool Pruefwert(double erg)
-        {
+        //Hier wird geprüft ob der wert 1 ist.
             if  (erg > 1 || erg < 1)
               return false;
       
