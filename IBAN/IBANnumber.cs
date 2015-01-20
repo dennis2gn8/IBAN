@@ -59,13 +59,6 @@ namespace IBAN
                 return false;
             }           
 
-            // Wenn der Ländercode nicht alle Zeichen Buchstaben sind , gib mir ein false
-
-            // Wenn der Ländercode nicht alle Zeichen nummeralisch sind , gib mir ein false
-
-            // Wenn der Ländercode nicht alle Zeichen nummeralisch sind , gib mir ein false
-
-            //alphanumeric
             char[] zeichen = LeanderCode.ToCharArray();
 
             //Gibt mir die Position der einzelnen Zeichen an (+1) 
@@ -95,9 +88,16 @@ namespace IBAN
             return true;                
         }
 
-        public string GetBlZ(string iban)
+        public string GetBLZ(string iban)
         {
-           
+            Boolean bla = IsValid(iban);
+            String blz = string.Empty;
+            if (bla == true) 
+            {
+                
+
+            }
+            return blz;
         }
            
     }

@@ -46,6 +46,18 @@ namespace IBANTest
             result = numberclass.IsValid(Pruefsumme);
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void TestGetBLZ()
+        {
+            //ich instanziiere hier eine Klasse und übergebe die  einer neuen  Klasse
+            IBANnumber numberclass = new IBANnumber();
+            String iban;
+            iban = "DK3456789012345678";
+            String result;
+            result = numberclass.GetBLZ(iban);
+            Assert.AreSame()
+        }
         //forget programming, PLAY SMITE INSTEAD (Proginator)
     }
 }  
