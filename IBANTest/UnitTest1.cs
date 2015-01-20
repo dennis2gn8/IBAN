@@ -23,16 +23,18 @@ namespace IBANTest
             Assert.IsTrue(result);
         }
              [TestMethod]
-        public void Umstellung()
+        public void IsValid2()
         {
             //ich instanziiere hier eine Klasse und übergebe die  einer neuen  Klasse
             IBANnumber numberclass = new IBANnumber();
             String Pruefsumme;
-            Pruefsumme = "AA111111111111111111111111111111122222222222222222222222222222222222222222222222222222222222222222";
+            Pruefsumme = "AA111111111111122222222";
             bool result;
             result = numberclass.IsValid(Pruefsumme);
             Assert.IsFalse(result);
         }
+
+        //forget programming, PLAY SMITE INSTEAD (Proginator)
     }
 }  
 
