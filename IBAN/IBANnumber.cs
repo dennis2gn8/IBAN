@@ -18,14 +18,24 @@ namespace IBAN
         /// <returns> boolean true if everything is OK, else false</returns>
         public bool IsValid(string iban)
         {
-           if (iban.Length == 0)
+            if (iban.Length == 0)
+            {
                 return false;
+            }
+
+            if (iban.Length > 34)
+            {
+                return false;
+            }
+               
             //ich brauche ein paar string parameters, und evtl. einen parameter
             string LeanderCode = iban.Substring(0, 2);
             //Eine definierte Variable mit den parameter Pruefsumme , die eine Wert enthält
             string Pruefsumme = iban.Substring(2, 2);
             //Eine definierte Variable mit den parameter Pruefsumme , die eine Wert enthält
             string BLZ_Konto = iban.Substring(4);
+            //Hier wird die Bankleitzahl und Kontonummer extrahiert.
+
             // Ein Array mit der Größe 2
             var zahlencode = new[] { 1, 2 };
 
@@ -42,24 +52,13 @@ namespace IBAN
             if (!LeanderCode.All(c => Char.IsLetter(c)))
             {
                 return false;
-          
-
             }
-            
 
             if (LeanderCode.StartsWith("DE") && iban.Length != 22)
             {
                 return false;
-            }
+            }           
 
-          
-            else if  (iban.Length  > 34)
-            {
-                return false;
-            }
-        
-        
-           
             // Wenn der Ländercode nicht alle Zeichen Buchstaben sind , gib mir ein false
 
             // Wenn der Ländercode nicht alle Zeichen nummeralisch sind , gib mir ein false
@@ -82,23 +81,25 @@ namespace IBAN
             string resultString = iban.Replace(LeanderCode, egdy);
             //In diesen Codeabschnitt findet eine Umstellung statt.
             resultString = resultString.Substring(6) + resultString.Substring(0, 6);
-            //Hier erstelle ich eine Variable, an die ein konvertierter String Übergeben wird.
-            decimal zwischenwert = decimal.Parse(resultString);
-            //In diesen Abschnitt wer eine Variable erstellt die den Parameter "zwischenwert" enthält 
-            decimal erg = zwischenwert % 97;
-           
 
+            //In diesen Abschnitt wer eine Variable erstellt die den Parameter "zwischenwert" enthält 
+            decimal erg = Convert.ToDecimal(decimal.Parse(resultString) % 97);
+            
             /// Hier wurde überprüft ob das Ergebnis 1 ergibt.
             if (erg > 1 || erg < 1)
             {
                 return false;
             }
+
             
-            {
-                return true;
-            }
+            return true;                
         }
-       
+
+        public string GetBlZ(string iban)
+        {
+           
+        }
+           
     }
 }
 
