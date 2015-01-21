@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace IBAN
 {
@@ -27,39 +28,30 @@ namespace IBAN
             {
                 return false;
             }
-               
-            //ich brauche ein paar string parameters, und evtl. einen parameter
-            string LeanderCode = iban.Substring(0, 2);
-            //Eine definierte Variable mit den parameter Pruefsumme , die eine Wert enthält
-            string Pruefsumme = iban.Substring(2, 2);
-            //Eine definierte Variable mit den parameter Pruefsumme , die eine Wert enthält
-            string BLZ_Konto = iban.Substring(4);
-            //Hier wird die Bankleitzahl und Kontonummer extrahiert.
 
+           // string KontrollZ = iban.Substring()
             // Ein Array mit der Größe 2
             var zahlencode = new[] { 1, 2 };
 
-            if (!Pruefsumme.All(c => Char.IsNumber(c)))
+            if (!iban.Substring(0, 2).All(c => Char.IsLetter(c)))
             {
                 return false;
             }
 
-            if (!BLZ_Konto.All(c => Char.IsNumber(c)))
+            if (!iban.Substring(2).All(c => Char.IsNumber(c)))
             {
                 return false;
             }
-
-            if (!LeanderCode.All(c => Char.IsLetter(c)))
+            
+            if (iban.StartsWith("DE") && iban.Length != 22)
             {
                 return false;
             }
+            else if (iban.StartsWith("PL")&& iban.Length != 28|| iban.StartsWith ("CZ") && iban.Length != 24)
 
-            if (LeanderCode.StartsWith("DE") && iban.Length != 22)
-            {
                 return false;
-            }           
 
-            char[] zeichen = LeanderCode.ToCharArray();
+            char[] zeichen = iban.Substring(0, 2).ToCharArray();
 
             //Gibt mir die Position der einzelnen Zeichen an (+1) 
             for (int i = 0; i < zeichen.Length; i++)
@@ -71,14 +63,14 @@ namespace IBAN
             // Ich erstelle eine Variable egdy in welcher ich aus einen Zahlenarray einen String verkette.
             string egdy = string.Concat(zahlencode);
             //Hier erste ich Variable mit den Namen resultString der mir die Buchstaben durch Zahlen resetzt.
-            string resultString = iban.Replace(LeanderCode, egdy);
+            string resultString = iban.Replace(iban.Substring(0, 2), egdy);
             //In diesen Codeabschnitt findet eine Umstellung statt.
             resultString = resultString.Substring(6) + resultString.Substring(0, 6);
 
             //In diesen Abschnitt wer eine Variable erstellt die den Parameter "zwischenwert" enthält 
-            decimal erg = Convert.ToDecimal(decimal.Parse(resultString) % 97);
+            BigInteger erg = BigInteger.Parse(resultString) % 97;
             
-            /// Hier wurde überprüft ob das Ergebnis 1 ergibt.
+            // Hier wurde überprüft ob das Ergebnis 1 ergibt.
             if (erg > 1 || erg < 1)
             {
                 return false;
@@ -90,14 +82,57 @@ namespace IBAN
 
         public string GetBLZ(string iban)
         {
-            Boolean bla = IsValid(iban);
-            String blz = string.Empty;
-            if (bla == true) 
+            Boolean Valid = IsValid(iban);
+
+            if (Valid == true)
             {
+                if (iban.StartsWith("DE"))
+                {
+                    return iban.Substring(4,8);
+                }
+                else if (iban.StartsWith("PL"))
+                {
+                    return iban.Substring(4,8);
+                }
+                else if (iban.StartsWith("CZ"))
+                    return iban.Substring(4,4);
+            
+            }
+            
                 
+                return string.Empty;
+
+
+        }
+
+
+        public string GetKonto(string iban)
+        {
+            Boolean Valid = IsValid(iban);
+
+            if (Valid == true)
+            {
+                if (iban.StartsWith("DE"))
+                {
+                    return iban.Substring(12);
+                }
+                else if (iban.StartsWith("PL"))
+                {
+                    return iban.Substring(12);
+                }
+                else if (iban.StartsWith("CZ"))
+                    return iban.Substring(10);
+            
+            }
+
+
+            
+
 
             }
-            return blz;
+
+
+
         }
            
     }
