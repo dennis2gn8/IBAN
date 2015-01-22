@@ -81,7 +81,7 @@ namespace IBANTest
             String iban;
             iban = "DE10550604170000082716";
             String result;
-            result = numberclass.Ausgabe(iban);
+            result = numberclass.GetKonto(iban);
             Assert.AreEqual(result, "0000082716");
        
         }
@@ -94,7 +94,7 @@ namespace IBANTest
             String iban;
             iban = "DE1055060417000023213213082716";
             String result;
-            result = numberclass.Ausgabe(iban);
+            result = numberclass.GetKonto(iban);
             Assert.AreNotEqual(result, "0000082716");
         }
 
@@ -131,7 +131,7 @@ namespace IBANTest
                 String iban;
                 iban = "PL37109024020000000610000434";
                 String result;
-                result = numberclass.Ausgabe(iban);
+                result = numberclass.GetKonto(iban);
                 Assert.AreEqual(result,"0000000610000434");
         }
 
@@ -166,7 +166,7 @@ namespace IBANTest
             String iban;
             iban = "CZ6508000000192000145399";
             String result;
-            result = numberclass.Ausgabe(iban);
+            result = numberclass.GetKonto(iban);
             Assert.AreEqual(result, "00192000145399");
         }
                  [TestMethod]
@@ -177,7 +177,7 @@ namespace IBANTest
             String iban;
             iban = "CZ650342534580sadasda00000192000145399";
             String result;
-            result = numberclass.Ausgabe(iban);
+            result = numberclass.GetKonto(iban);
             Assert.AreNotEqual(result,"0000192000145399");
 
 
@@ -186,6 +186,19 @@ namespace IBANTest
 
 
 
+        }
+
+
+        [TestMethod]
+        public void TestGenerateGermanIban()
+        {
+            IBANnumber ibanClass = new IBANnumber();
+            String expectedIban ="DE10550604170000082716";
+            String givenBlz ="55060417";
+            String givenKtoNr="82716";
+            String result;
+            result = ibanClass.GenerateDeIban(givenBlz, givenKtoNr);
+            Assert.AreEqual(result, expectedIban);
         }
         
     }
