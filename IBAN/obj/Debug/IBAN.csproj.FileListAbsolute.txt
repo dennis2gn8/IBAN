@@ -2,5 +2,4 @@ C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBAN\bin\Debug\IBAN.d
 C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBAN\bin\Debug\IBAN.pdb
 C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBAN\obj\Debug\IBAN.dll
 C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBAN\obj\Debug\IBAN.pdb
-C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBAN\obj\Debug\IBAN.csprojResolveAssemblyReference.cache
 C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBAN\bin\Debug\IBAN.XML

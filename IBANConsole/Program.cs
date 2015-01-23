@@ -11,20 +11,15 @@ namespace IBANConsole
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Geben sie hier ihre BLZ ein: ");
+            string blz = Console.ReadLine();
+            Console.WriteLine("Geben sie hier ihre Kontonummer ein: ");
 
-            if(args.Length == 0)
-            {
-                Console.WriteLine("Keine argumente gegeben");
-                Console.ReadKey();
-                return;
-            }
-
-            string blz = args[0];
-            string konto = args[1];
-            string iban = IBANnumber.GenerateDeIban(blz, konto);
-
+            string konto = Console.ReadLine();
+            string iban = IBANnumber.GenerateDeIban(blz,konto);
+            
             Console.WriteLine(iban);
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

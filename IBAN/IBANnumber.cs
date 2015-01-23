@@ -107,7 +107,7 @@ namespace IBAN
 
 
         }
-
+       // static ist ein Zusatz bei der Deklaration von Variablen .
         //In Dieser Funktion wir die BLZ extrahiert.
         public static string GetKonto(string iban)
         {
