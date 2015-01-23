@@ -1,0 +1,9 @@
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\bin\Debug\IBANConsole.exe.config
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\bin\Debug\IBANConsole.exe
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\bin\Debug\IBANConsole.pdb
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\bin\Debug\IBAN.dll
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\bin\Debug\IBAN.pdb
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\bin\Debug\IBAN.xml
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\obj\Debug\IBANConsole.csprojResolveAssemblyReference.cache
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\obj\Debug\IBANConsole.exe
+C:\Users\dandre\documents\visual studio 2013\Projects\IBAN\IBANConsole\obj\Debug\IBANConsole.pdb

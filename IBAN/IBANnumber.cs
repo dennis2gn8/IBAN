@@ -10,14 +10,14 @@ namespace IBAN
     /// <summary>
     /// 
     /// </summary>
-    public class IBANnumber
+    public static class IBANnumber
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="iban">iban (erwatet ein  parameter von typ string mit der bezeichnung iban)</param>
         /// <returns> boolean true if everything is OK, else false</returns>
-        public bool IsValid(string iban)
+        public static bool IsValid(string iban)
         {
             //Hier wird die minimallänge deviniert 
             if (iban.Length == 0)
@@ -82,7 +82,7 @@ namespace IBAN
             return true;                
         }
         // In Dieser Funktion wir die BLZ extrahiert.
-        public string GetBLZ(string iban)
+        public static string GetBLZ(string iban)
         {
             Boolean Valid = IsValid(iban);
             //Fall die Valide ist gib ein True aus 
@@ -109,7 +109,7 @@ namespace IBAN
         }
 
         //In Dieser Funktion wir die BLZ extrahiert.
-        public string GetKonto(string iban)
+        public static string GetKonto(string iban)
         {
          //Bolean wird erstellt und die Funktion IsValid wird überprüft.
             Boolean Valid = IsValid(iban);
@@ -130,14 +130,11 @@ namespace IBAN
                     return iban.Substring(10);
 
             }
-
-
             return string.Empty;
-
         }
 
-           //In dieser Funktion wird eine valide ibannummer Generiert 
-        public string GenerateDeIban(string givenBlz, string givenKtoNr)
+        //In dieser Funktion wird eine valide ibannummer Generiert 
+        public static string GenerateDeIban(string givenBlz, string givenKtoNr)
         {
             string iban;
             string Leandercode ="DE";
@@ -157,7 +154,7 @@ namespace IBAN
             {
                 givenKtoNr = "0" + givenKtoNr;
             }
-            //In dieser Variable werden 2 Strings zusammen verkettet und an die Zwischensumme überwiesen
+            //In dieser Variable werden 2 Strings zusammen verkettet und an die Zwischensumme überwiesen.
             string zwischensumme = string.Concat(zahlencode) + "00";
 
             iban = givenBlz + givenKtoNr + zwischensumme;
@@ -176,6 +173,7 @@ namespace IBAN
             string IBAN = Leandercode + Prüfsumme + givenBlz + givenKtoNr;
             return IBAN;
             
+
         }
     }
 }

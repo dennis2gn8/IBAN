@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IBAN</name>
+    </assembly>
+    <members>
+        <member name="T:IBAN.IBANnumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IBAN.IBANnumber.IsValid(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="iban">iban (erwatet ein  parameter von typ string mit der bezeichnung iban)</param>
+            <returns> boolean true if everything is OK, else false</returns>
+        </member>
+    </members>
+</doc>
