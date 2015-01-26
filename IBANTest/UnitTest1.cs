@@ -88,7 +88,7 @@ namespace IBANTest
             iban = "DE1055060417000023213213082716";
             String result;
             result = IBANnumber.GetKonto(iban);
-            Assert.AreNotEqual(result, "0000082716");
+            Assert.AreNotEqual(result, "82716");
         }
 
         [TestMethod]
